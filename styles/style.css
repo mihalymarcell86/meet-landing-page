@@ -1,0 +1,216 @@
+:root {
+  font-size: 1.125em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  background-color: hsl(0deg, 0%, 98%);
+}
+
+img {
+  max-width: 100%;
+}
+
+.logo {
+  display: block;
+  margin-top: 48px;
+  margin-inline: auto;
+  margin-bottom: 54px;
+}
+
+.top-section {
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: 3.5555555556rem;
+}
+
+.hero-img {
+  display: block;
+  max-width: none;
+  width: 414px;
+  height: 153px;
+  transform: translateX(calc((100% - 100vw) / -2));
+  margin-bottom: 48px;
+}
+
+.heading {
+  font-size: 2.2222222222rem;
+  line-height: 1.1;
+  font-weight: 900;
+  text-align: center;
+  color: hsl(240deg, 21%, 20%);
+  margin-bottom: 0.6em;
+  margin-inline: 45px;
+}
+
+.paragraph {
+  font-size: 0.8888888889rem;
+  line-height: 1.625;
+  font-weight: 500;
+  text-align: center;
+  color: hsl(240deg, 10%, 57%);
+  margin-bottom: 2em;
+  margin-inline: 23px;
+}
+
+.button {
+  display: block;
+  border: 0;
+  border-radius: 29px;
+  font-size: 0.8888888889rem;
+  line-height: 1.625;
+  font-weight: 900;
+  padding: 1em;
+  margin: 0 auto;
+  color: white;
+  cursor: pointer;
+}
+
+.button--big {
+  padding-inline: 2.5em;
+}
+
+.button--small {
+  padding-inline: 1.8125em;
+}
+
+.button--color1 {
+  background-color: hsl(192deg, 37%, 48%);
+  transition: all 0.2s ease-out;
+}
+.button--color1:hover {
+  background-color: hsl(192deg, 54%, 64%);
+}
+
+.button--color2 {
+  background-color: hsl(268deg, 34%, 53%);
+  transition: all 0.2s ease-out;
+}
+.button--color2:hover {
+  background-color: hsl(268deg, 55%, 71%);
+}
+
+.button__highlight--color1 {
+  color: hsl(192deg, 90%, 77%);
+}
+
+.button__highlight--color2 {
+  color: hsl(268deg, 100%, 86%);
+}
+
+.button__margin--top {
+  margin-bottom: 1em;
+}
+
+.button__margin--footer {
+  margin-bottom: 4.5em;
+}
+
+.separator {
+  position: relative;
+  margin-inline: auto;
+  margin-top: 64px;
+}
+
+.separator__line {
+  height: 84px;
+  width: 50%;
+  border-right: 1px solid hsla(240deg, 10%, 57%, 0.25);
+}
+
+.separator__circle {
+  font-size: 0.8888888889rem;
+  line-height: 1.625;
+  font-weight: 900;
+  background-color: hsl(0deg, 0%, 98%);
+  color: hsl(240deg, 10%, 57%);
+  width: 3.5em;
+  aspect-ratio: 1;
+  border: 1px solid hsla(240deg, 10%, 57%, 0.25);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3.5;
+  margin: 0 auto;
+}
+
+.middle-section {
+  margin-bottom: -28px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 24px 64px;
+}
+
+.images__img {
+  max-width: 151px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.overline {
+  font-size: 0.8888888889rem;
+  line-height: 1.625;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  color: hsl(192deg, 37%, 48%);
+  margin-bottom: 1.5em;
+}
+
+.subheading {
+  font-size: 1.7777777778rem;
+  line-height: 1.125;
+  font-weight: 900;
+  text-align: center;
+  color: hsl(240deg, 21%, 20%);
+  margin: 0 24px 1em;
+}
+
+.subheading--footer {
+  margin-bottom: 0.75em;
+}
+
+.bottom-section {
+  position: relative;
+  min-height: 428px;
+  padding-top: 92px;
+}
+
+.bottom-section::after, .bottom-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.bottom-section::before {
+  background-color: hsl(192deg, 37%, 48%);
+}
+
+.bottom-section::after {
+  background-image: url("../assets/mobile/image-footer.jpg");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.light-text {
+  color: hsl(0deg, 0%, 98%);
+}
+
+/*# sourceMappingURL=style.css.map */

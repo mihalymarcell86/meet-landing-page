@@ -1,0 +1,15 @@
+@use "sass:math";
+
+$REM: 18;
+
+$breakpoint: undefined;
+
+$colors: (
+  rackley: hsl(192, 37%, 48%),
+  royal-purple: hsl(268, 34%, 53%),
+  yankees-blue: hsl(240, 21%, 20%),
+  roman-silver: hsl(240, 10%, 57%),
+  pale-cyan: hsl(192, 90%, 77%),
+  mauve: hsl(268, 100%, 86%),
+  lotion: hsl(0, 0%, 98%),
+);

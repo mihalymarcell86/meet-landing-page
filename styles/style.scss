@@ -1,0 +1,209 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "sass:math";
+
+:root {
+  font-size: em(18px, 16px);
+}
+
+@include reset;
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  background-color: color(lotion);
+}
+
+img {
+  max-width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: {
+    top: 48px;
+    inline: auto;
+    bottom: 54px;
+  }
+}
+
+.top-section {
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: rem(64px);
+}
+
+.hero-img {
+  display: block;
+  max-width: none;
+  width: 414px;
+  height: 153px;
+  transform: translateX(calc((100% - 100vw) / -2));
+  //TODO: fix resize!
+  margin-bottom: 48px;
+}
+
+.heading {
+  @include setFont(rem(40px), 44, 900);
+  text-align: center;
+  color: color(yankees-blue);
+  margin: {
+    bottom: em(24px, 40px);
+    inline: 45px;
+  }
+}
+
+.paragraph {
+  @include setFont(rem(16px), 26, 500);
+  text-align: center;
+  color: color(roman-silver);
+  margin: {
+    bottom: em(32px, 16px);
+    inline: 23px;
+  }
+}
+
+.button {
+  display: block;
+  border: 0;
+  border-radius: 29px;
+  @include setFont(rem(16px), 26, 900);
+  padding: em(16px, 16px);
+  margin: 0 auto;
+  color: white;
+  cursor: pointer;
+}
+
+.button--big {
+  padding-inline: em(40px, 16px);
+}
+
+.button--small {
+  padding-inline: em(29px, 16px);
+}
+
+.button--color1 {
+  background-color: color(rackley);
+  transition: all 0.2s ease-out;
+  &:hover {
+    background-color: hsl(192, 54%, 64%);
+  }
+}
+
+.button--color2 {
+  background-color: color(royal-purple);
+  transition: all 0.2s ease-out;
+  &:hover {
+    background-color: hsl(268, 55%, 71%);
+  }
+}
+
+.button__highlight--color1 {
+  color: hsl(192, 90%, 77%);
+}
+
+.button__highlight--color2 {
+  color: hsl(268, 100%, 86%);
+}
+
+.button__margin--top {
+  margin-bottom: em(16px, 16px);
+}
+
+.button__margin--footer {
+  margin-bottom: em(72px, 16px);
+}
+
+.separator {
+  position: relative;
+  margin-inline: auto;
+  margin-top: 64px;
+}
+
+.separator__line {
+  height: 84px;
+  width: 50%;
+  border-right: 1px solid hsla(240, 10%, 57%, 0.25);
+}
+
+.separator__circle {
+  @include setFont(rem(16px), 26, 900);
+  background-color: color(lotion);
+  color: color(roman-silver);
+  width: em(56px, 16px);
+  aspect-ratio: 1;
+  border: 1px solid hsla(240, 10%, 57%, 0.25);
+  border-radius: 50%;
+  text-align: center;
+  line-height: math.div(56, 16);
+  margin: 0 auto;
+}
+
+.middle-section {
+  margin-bottom: -28px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 24px 64px;
+}
+
+.images__img {
+  max-width: 151px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.overline {
+  @include setFont(rem(16px), 26, 900);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  color: color(rackley);
+  margin-bottom: em(24px, 16px);
+}
+
+.subheading {
+  @include setFont(rem(32px), 36, 900);
+  text-align: center;
+  color: color(yankees-blue);
+  margin: 0 24px em(32px, 32px);
+}
+
+.subheading--footer {
+  margin-bottom: em(24px, 32px);
+}
+
+.bottom-section {
+  position: relative;
+  min-height: 428px;
+  padding-top: 92px;
+}
+
+%section-layer {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.bottom-section::before {
+  @extend %section-layer;
+  background-color: color(rackley);
+}
+
+.bottom-section::after {
+  @extend %section-layer;
+  background-image: url("../assets/mobile/image-footer.jpg");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.light-text {
+  color: color(lotion);
+}
