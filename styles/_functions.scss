@@ -32,7 +32,6 @@ $unit-table: (
 );
 
 // Unit conversion
-
 @function strip-unit($value) {
   @if unitless($value) {
     @return $value;

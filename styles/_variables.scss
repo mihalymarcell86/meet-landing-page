@@ -2,7 +2,10 @@
 
 $REM: 18;
 
-$breakpoint: undefined;
+$w_mobile: 375px;
+$w_tablet: 768px;
+$w_dekstop: 1440px;
+$breakpoint1: 727px;
 
 $colors: (
   rackley: hsl(192, 37%, 48%),

@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "functions" as *;
+@use "lerp" as *;
 @use "sass:math";
 
 :root {
@@ -22,24 +23,39 @@ img {
   margin: {
     top: 48px;
     inline: auto;
-    bottom: 54px;
+    bottom: MTlerp(54px, 64px);
+  }
+  @media (min-width: $w_tablet) {
+    margin-bottom: 64px;
   }
 }
 
-.top-section {
+header {
   overflow-x: hidden;
-  position: relative;
-  margin-bottom: rem(64px);
 }
 
 .hero-img {
   display: block;
   max-width: none;
-  width: 414px;
-  height: 153px;
-  transform: translateX(calc((100% - 100vw) / -2));
-  //TODO: fix resize!
-  margin-bottom: 48px;
+  width: MTlerp(414px, 820px);
+  height: MTlerp(153px, 303px);
+  margin-left: MTlerp(-20px, -26px);
+  margin-bottom: MTlerp(48px, 72px);
+  @media (min-width: $w_tablet) {
+    width: 820px;
+    height: 303px;
+    margin-left: -26px;
+    margin-bottom: 72px;
+  }
+}
+
+main {
+  padding-inline: 24px;
+}
+
+.top-section {
+  position: relative;
+  margin-bottom: rem(64px);
 }
 
 .heading {
@@ -48,17 +64,34 @@ img {
   color: color(yankees-blue);
   margin: {
     bottom: em(24px, 40px);
-    inline: 45px;
+    inline: auto;
   }
+  max-width: rem(290px);
+  @media (min-width: $breakpoint1) {
+    @include setFont(rem(48px), 48);
+    max-width: rem(339px);
+  }
+}
+
+.top__paragraph {
+  max-width: rem(457px);
 }
 
 .paragraph {
   @include setFont(rem(16px), 26, 500);
   text-align: center;
   color: color(roman-silver);
-  margin: {
-    bottom: em(32px, 16px);
-    inline: 23px;
+  margin-inline: auto;
+  margin-bottom: em(32px, 16px);
+}
+
+.top__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: rem(16px);
+  @media (min-width: 520px) {
+    flex-direction: row;
   }
 }
 
@@ -68,7 +101,7 @@ img {
   border-radius: 29px;
   @include setFont(rem(16px), 26, 900);
   padding: em(16px, 16px);
-  margin: 0 auto;
+  align-self: center;
   color: white;
   cursor: pointer;
 }
@@ -105,18 +138,13 @@ img {
   color: hsl(268, 100%, 86%);
 }
 
-.button__margin--top {
-  margin-bottom: em(16px, 16px);
-}
-
-.button__margin--footer {
-  margin-bottom: em(72px, 16px);
-}
-
 .separator {
   position: relative;
   margin-inline: auto;
-  margin-top: 64px;
+  margin-top: MTlerp(64px, 80px);
+  @media (min-width: $w_tablet) {
+    margin-top: 80px;
+  }
 }
 
 .separator__line {
@@ -129,7 +157,7 @@ img {
   @include setFont(rem(16px), 26, 900);
   background-color: color(lotion);
   color: color(roman-silver);
-  width: em(56px, 16px);
+  width: rem(56px);
   aspect-ratio: 1;
   border: 1px solid hsla(240, 10%, 57%, 0.25);
   border-radius: 50%;
@@ -139,21 +167,45 @@ img {
 }
 
 .middle-section {
-  margin-bottom: -28px;
+  margin-bottom: rem(-28px);
+  //TODO lerp in order to adjust section border to circle
 }
 
 .images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
-  margin: 0 24px 64px;
+  justify-content: center;
+  margin-bottom: 64px;
+  gap: 25px;
+  @media (min-width: $breakpoint1) {
+    gap: lerp($breakpoint1, 25px, $w_tablet, 11px);
+    margin-bottom: 48px;
+  }
+  @media (min-width: $w_tablet) {
+    gap: 11px;
+  }
+}
+
+.images__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  @media (min-width: $breakpoint1) {
+    gap: lerp($breakpoint1, 25px, $w_tablet, 11px);
+  }
+  @media (min-width: $w_tablet) {
+    gap: 11px;
+  }
 }
 
 .images__img {
   max-width: 151px;
   border-radius: 8px;
-  margin: 0 auto;
+  @media (min-width: $breakpoint1) {
+    width: lerp($breakpoint1, 151px, $w_tablet, 164px);
+    max-width: 164px;
+  }
 }
 
 .overline {
@@ -163,23 +215,38 @@ img {
   text-align: center;
   color: color(rackley);
   margin-bottom: em(24px, 16px);
+  @media (min-width: $breakpoint1) {
+    margin-bottom: em(16px, 16px);
+  }
 }
 
 .subheading {
   @include setFont(rem(32px), 36, 900);
   text-align: center;
   color: color(yankees-blue);
-  margin: 0 24px em(32px, 32px);
+  margin-inline: auto;
+  margin-bottom: em(32px, 32px);
+  max-width: rem(340px);
+  @media (min-width: $breakpoint1) {
+    @include setFont(rem(40px), 44);
+    max-width: rem(445px);
+    margin-bottom: em(32px, 40px);
+  }
 }
 
-.subheading--footer {
-  margin-bottom: em(24px, 32px);
+.middle__paragraph {
+  max-width: rem(573px);
 }
 
 .bottom-section {
   position: relative;
   min-height: 428px;
   padding-top: 92px;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 %section-layer {
@@ -202,6 +269,19 @@ img {
   background-image: url("../assets/mobile/image-footer.jpg");
   background-size: cover;
   opacity: 0.1;
+}
+
+.bottom__subheading {
+  margin-bottom: em(24px, 32px);
+}
+
+.bottom__paragraph {
+  margin-inline: 18px;
+  max-width: rem(525px);
+}
+
+.bottom__button {
+  margin-bottom: em(72px, 16px);
 }
 
 .light-text {
